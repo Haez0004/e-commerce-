@@ -1,18 +1,23 @@
+import { Routes, Route, Link } from 'react-router-dom';
 import { useCart } from './context/CartContext';
-import ProductCard from './components/ProductCard';
-import { products } from './data/products';
+import Home from './pages/Home';
+import Cart from './pages/Cart';
 
 export default function App() {
-const { items } = useCart();
-const count = items.reduce((total, item) => total + item.quantity, 0);
+  const { items } = useCart();
+  const count = items.reduce((total, item) => total + item.quantity, 0);
+
   return (
-<div>
-  <header className="p-4 font-bold">Cart ({count})</header>
-    <div className="grid grid-cols-2 gap-4 p-4">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <div>
+      <header className="flex justify-between p-4 font-bold">
+        <Link to="/">Shop</Link>
+        <Link to="/cart">Cart ({count})</Link>
+      </header>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
     </div>
-  </div>
   );
 }
