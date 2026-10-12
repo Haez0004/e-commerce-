@@ -1,12 +1,18 @@
+import { useCart } from './context/CartContext';
 import ProductCard from './components/ProductCard';
 import { products } from './data/products';
 
 export default function App() {
+const { items } = useCart();
+const count = items.reduce((total, item) => total + item.quantity, 0);
   return (
+<div>
+  <header className="p-4 font-bold">Cart ({count})</header>
     <div className="grid grid-cols-2 gap-4 p-4">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
     </div>
+  </div>
   );
 }
