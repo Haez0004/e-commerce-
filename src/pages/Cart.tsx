@@ -6,6 +6,10 @@ export default function Cart() {
   if (items.length === 0) {
     return <p className="p-4">Your cart is empty.</p>;
   }
+  const total = items.reduce(
+     (sum, item) => sum + item.product.price * item.quantity,
+    0
+  );
 
   return (
     <div className="p-4">
@@ -34,6 +38,9 @@ export default function Cart() {
         </div>
         </div>
       ))}
+          <p className="mt-4 text-lg font-bold">
+              Total: {total.toLocaleString('en-NG', { style: 'currency', currency: 'NGN' })}
+    </p>
     </div>
   );
 }
