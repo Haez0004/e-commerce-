@@ -22,9 +22,15 @@ export default function Cart() {
         </button>
         <button
           className="rounded border px-3"
-          onClick={() => dispatch({type: 'DECREASE_ITEM', id: item.product.id})}
+            onClick={() => dispatch({type: 'DECREASE_ITEM', id: item.product.id})}
           > -
         </button>
+        <button
+          className="rounded border px-3"
+            onClick={() => dispatch({type: 'REMOVE_ITEM', id: item.product.id})}
+            >
+             Remove
+         </button>
         </div>
         </div>
       ))}
