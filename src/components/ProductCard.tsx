@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import type { Product } from '../types';
 import { useCart } from '../context/CartContext';
 
@@ -10,7 +11,9 @@ const { dispatch } = useCart();
   return (
     <div className="rounded-xl border p-3 shadow-sm">
       <img className="w-full rounded-lg" src={product.image} alt={product.name} />
-      <h3 className="mt-2 font-semibold">{product.name}</h3>
+      <h3 className="mt-2 font-semibold">
+        <Link to={`/product/${product.id}`}>{product.name}</Link>
+        </h3>
       <p className="text-sm text-gray-500">{product.category}</p>
       <p className="font-bold text-green-600">
   {product.price.toLocaleString('en-NG', { style: 'currency', currency: 'NGN' })}

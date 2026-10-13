@@ -2,6 +2,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { useCart } from './context/CartContext';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import ProductDetail from './pages/ProductDetail';
 
 export default function App() {
   const { items } = useCart();
@@ -17,6 +18,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
     </div>
   );
