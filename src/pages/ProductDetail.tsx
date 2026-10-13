@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { products } from '../data/products';
 
 export default function ProductDetail() {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
-
+const [selectedColor, setSelectedColor] = useState<string | undefined>(
+  product?.colors?.[0]
+);
   if (!product) {
     return <p className="p-4">Product not found.</p>;
   }
@@ -17,6 +20,20 @@ export default function ProductDetail() {
       <p className="font-bold text-green-600">
 {product.price.toLocaleString('en-NG', { style: 'currency', currency: 'NGN' })}
      </p>  
+{product.colors && (
+  <div className="mt-3 flex gap-2">
+    {product.colors.map((color) => (
+      <button
+        key={color}
+        className="rounded border px-3 py-1"
+        onClick={() => setSelectedColor(color)}
+      >
+        {color}
+      </button>
+    ))}
+  </div>
+)}
+<p className="mt-2 text-sm">Selected: {selectedColor}</p>
     </div>
   );
 }
