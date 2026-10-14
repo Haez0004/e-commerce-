@@ -18,3 +18,19 @@ Next:
 - Toast notifications (added/removed)
 - Later: user reviews that calculate rating from a list (localStorage)
 - Deploy + README with screenshots
+
+## Project 5 update (Oct 14, night)
+Done:
+- Live on Vercel: ten-wine-53.vercel.app (vercel.json fixes refresh 404)
+- PWA: manifest.json, icons, service-worker.js (registered in main.tsx)
+- Header: bordered Home link, basket icon with count, bordered Orders link
+- Hero banner on Home with Shop now button
+- Orders history (success, failed, cancelled) with Cancel order button
+- Profile type + src/utils/profile.ts (getProfile, saveProfile, clearProfile)
+
+Next:
+- Step 4b: Account page (src/pages/Account.tsx) + /account route + header link
+- Step 4c: prefill checkout from saved profile
+- Help center page (/help)
+- PWA offline test on the live site (airplane mode)
+- README: features, tech stack, run locally, screenshots

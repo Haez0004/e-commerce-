@@ -29,3 +29,9 @@ export interface Order {
   total: number;
   status: 'success' | 'failed' | 'cancelled';
 }
+
+export interface Profile {
+  name: string;
+  phone: string;
+  address: string;
+}
