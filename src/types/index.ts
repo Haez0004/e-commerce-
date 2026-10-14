@@ -14,3 +14,18 @@ export interface CartItem {
   quantity: number;
   selectedColor?: string;
 }
+
+export interface OrderItem {
+  name: string;
+  quantity: number;
+  price: number;
+  selectedColor?: string;
+}
+
+export interface Order {
+  id: string;
+  date: string;
+  items: OrderItem[];
+  total: number;
+  status: 'success' | 'failed' | 'cancelled';
+}

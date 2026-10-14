@@ -14,7 +14,24 @@ export default function Home() {
 
   return (
     <div className="p-4">
+<section className="mb-4 rounded-xl bg-green-600 p-6 text-white">
+  <h1 className="text-2xl font-bold">
+   Welcome to HAEZ SHOP
+  </h1>
+  <p className="mt-2 text-sm">
+    Phones, laptops and headphones at great prices.
+  </p>
+<button
+  onClick={() =>
+    document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })
+  }
+  className="mt-4 rounded-lg bg-white px-5 py-2 font-semibold text-green-700"
+>
+  Shop now
+</button>
+</section>
       <input
+       id="products"
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}

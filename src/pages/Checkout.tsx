@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useCart } from '../context/CartContext';
+import { saveOrder } from '../utils/orders';
+import type { Order } from '../types';
 
 export default function Checkout() {
   const { items, dispatch } = useCart();
@@ -33,6 +35,21 @@ function fakePayment(): Promise<void> {
   });
 }
 
+function buildOrder(status: Order['status']): Order {
+  return {
+    id: `ORD-${Date.now()}`,
+    date: new Date().toISOString(),
+    items: items.map((item) => ({
+      name: item.product.name,
+      quantity: item.quantity,
+      price: item.product.price,
+      selectedColor: item.selectedColor,
+    })),
+    total,
+    status,
+  };
+}
+
 async function handleSubmit() {
   const newErrors = validate();
   setErrors(newErrors);
@@ -42,9 +59,11 @@ async function handleSubmit() {
   setPaymentError('');
   try {
     await fakePayment();
+  saveOrder(buildOrder('success'));
     dispatch({ type: 'CLEAR' });
     setPlaced(true);
   } catch (err) {
+  saveOrder(buildOrder('failed'));
     setPaymentError(
       err instanceof Error ? err.message : 'Something went wrong.'
     );
