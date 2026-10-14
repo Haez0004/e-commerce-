@@ -6,7 +6,9 @@ export const products: Product[] = [
     name: 'Samsung Galaxy A15',
     price: 500,
     category: 'Cellphone',
-    image: 'https://placehold.co/300x300',
+    image: '/images/samsung-a15.jpeg',
+    rating: 4.3,
+    reviewCount: 128,
     colors: ['Black', 'Blue'],
   },
   {
@@ -14,7 +16,9 @@ export const products: Product[] = [
     name: 'Lenovo ThinkPad T14',
     price: 1000,
     category: 'Laptop',
-    image: 'https://placehold.co/300x300',
+    image: '/images/lenovo-t14.jpeg',
+    rating: 4.2,
+    reviewCount: 127,
     colors: ['Black', 'Silver'],
   },
   {
@@ -22,7 +26,9 @@ export const products: Product[] = [
     name: 'JBL Tune 530BT',
     price: 45,
     category: 'Headphone',
-    image: 'https://placehold.co/300x300',
+    image: '/images/JBL530BT.jpeg',
+    rating: 4.5,
+    reviewCount: 223,
     colors: ['Gray', 'White'],
   },
 ];

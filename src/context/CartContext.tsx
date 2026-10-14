@@ -7,49 +7,68 @@ interface CartState {
 }
 
 type CartAction =
-  | { type: 'ADD_ITEM'; product: Product }
-  | { type: 'REMOVE_ITEM'; id: number }
-  | { type: 'INCREASE_ITEM'; id: number}
-  | { type: 'DECREASE_ITEM'; id: number }
+  | { type: 'ADD_ITEM'; product: Product; selectedColor?: string }
+  | { type: 'REMOVE_ITEM'; id: number; selectedColor?: string }
+  | { type: 'INCREASE_ITEM'; id: number; selectedColor?: string }
+| { type: 'DECREASE_ITEM'; id: number; selectedColor?: string }
   | { type: 'CLEAR' };
 
 function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {
-    case 'ADD_ITEM': {
+        case 'ADD_ITEM': {
       const existing = state.items.find(
-        (item) => item.product.id === action.product.id
+        (item) =>
+          item.product.id === action.product.id &&
+          item.selectedColor === action.selectedColor
       );
       if (existing) {
         return {
           items: state.items.map((item) =>
-            item.product.id === action.product.id
+            item.product.id === action.product.id &&
+            item.selectedColor === action.selectedColor
               ? { ...item, quantity: item.quantity + 1 }
               : item
           ),
         };
       }
       return {
-        items: [...state.items, { product: action.product, quantity: 1 }],
+        items: [
+          ...state.items,
+          {
+            product: action.product,
+            quantity: 1,
+            selectedColor: action.selectedColor,
+          },
+        ],
       };
     }
     case 'REMOVE_ITEM':
       return {
-        items: state.items.filter((item) => item.product.id !== action.id),
-      };
+            items: state.items.filter(
+      (item) =>
+        !(
+          item.product.id === action.id &&
+          item.selectedColor === action.selectedColor
+        )
+    ),
+  };
     case 'INCREASE_ITEM':
-      return {
-        items: state.items.map((item) =>
-          item.product.id === action.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        ),
-      };
+  return {
+    items: state.items.map((item) =>
+      item.product.id === action.id &&
+      item.selectedColor === action.selectedColor
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    ),
+  };
   case 'DECREASE_ITEM':
-    return {
-      items: state.items .map((item) =>
-       item.product.id === action.id
-      ?  {...item, quantity: item.quantity - 1}
-      : item
+  return {
+    items: state.items
+      .map((item) =>
+        item.product.id === action.id &&
+        item.selectedColor === action.selectedColor
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
       )
       .filter((item) => item.quantity > 0),
   };

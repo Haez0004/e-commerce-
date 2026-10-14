@@ -3,6 +3,8 @@ import { useCart } from './context/CartContext';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import ProductDetail from './pages/ProductDetail';
+import Checkout from './pages/Checkout';
+import { Toaster } from 'react-hot-toast';
 
 export default function App() {
   const { items } = useCart();
@@ -10,6 +12,7 @@ export default function App() {
 
   return (
     <div>
+      <Toaster position="top-center" />
       <header className="flex justify-between p-4 font-bold">
         <Link to="/">Shop</Link>
         <Link to="/cart">Cart ({count})</Link>
@@ -19,6 +22,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </div>
   );

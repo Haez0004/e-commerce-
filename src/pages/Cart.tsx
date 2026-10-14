@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import toast from 'react-hot-toast';
 
 export default function Cart() {
   const { items, dispatch } = useCart();
@@ -15,23 +17,27 @@ export default function Cart() {
     <div className="p-4">
       <h1 className="text-xl font-bold">Your cart</h1>
       {items.map((item) => (
-        <div key={item.product.id} className="mt-3 border-b pb-3">
+        <div key={`${item.product.id}-${item.selectedColor}`} className="mt-3 border-b pb-3">
           <p className="font-semibold">{item.product.name}</p>
           <p className="text-sm text-gray-500">qty: {item.quantity}</p>
+          {item.selectedColor && <p className="text-sm">Color: {item.selectedColor}</p>}
    <div className="mt-2 flex gap-2">
       <button
-        className="rounded border px-3"
-          onClick={() => dispatch({ type: 'INCREASE_ITEM', id: item.product.id })}
+        className="h-10 w-10 rounded border text-lg"
+          onClick={() => dispatch({ type: 'INCREASE_ITEM', id: item.product.id, selectedColor: item.selectedColor })}
            > +
         </button>
         <button
-          className="rounded border px-3"
-            onClick={() => dispatch({type: 'DECREASE_ITEM', id: item.product.id})}
+          className="h-10 w-10 rounded border text-lg"
+            onClick={() => dispatch({type: 'DECREASE_ITEM', id: item.product.id, selectedColor: item.selectedColor})}
           > -
         </button>
         <button
-          className="rounded border px-3"
-            onClick={() => dispatch({type: 'REMOVE_ITEM', id: item.product.id})}
+          className="rounded border px-3 text-red-600"
+            onClick={() => {
+              dispatch({ type: 'REMOVE_ITEM', id: item.product.id, selectedColor: item.selectedColor });
+               toast('Removed from cart');
+              }}
             >
              Remove
          </button>
@@ -41,6 +47,23 @@ export default function Cart() {
           <p className="mt-4 text-lg font-bold">
               Total: {total.toLocaleString('en-NG', { style: 'currency', currency: 'NGN' })}
     </p>
+<Link
+  to="/checkout"
+  className="mt-4 block w-full rounded bg-green-600 py-2 text-center text-white"
+>
+  Proceed to Checkout
+</Link>
+<button
+  className="mt-4 w-full rounded border border-red-500 py-2 text-red-500"
+  onClick={() => {
+  if (window.confirm('Remove all items from your cart?')) {
+    dispatch({ type: 'CLEAR' });
+    toast('Cart cleared');
+  }
+}}
+>
+  Clear Cart
+</button>
     </div>
   );
 }

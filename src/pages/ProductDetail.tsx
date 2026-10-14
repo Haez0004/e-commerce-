@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { products } from '../data/products';
+import { useCart } from '../context/CartContext';
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -8,6 +9,7 @@ export default function ProductDetail() {
 const [selectedColor, setSelectedColor] = useState<string | undefined>(
   product?.colors?.[0]
 );
+const { dispatch } = useCart();
   if (!product) {
     return <p className="p-4">Product not found.</p>;
   }
@@ -34,6 +36,18 @@ const [selectedColor, setSelectedColor] = useState<string | undefined>(
   </div>
 )}
 <p className="mt-2 text-sm">Selected: {selectedColor}</p>
+<button
+  className="mt-4 w-full rounded bg-green-600 py-2 text-white"
+  onClick={() =>
+    dispatch({
+      type: 'ADD_ITEM',
+      product,
+      selectedColor,
+    })
+  }
+>
+  Add to Cart
+</button>
     </div>
   );
 }
