@@ -5,9 +5,10 @@ import Cart from './pages/Cart';
 import ProductDetail from './pages/ProductDetail';
 import Checkout from './pages/Checkout';
 import { Toaster } from 'react-hot-toast';
-import { ShoppingBasket, User } from 'lucide-react';
+import { ShoppingBasket, User, CircleHelp } from 'lucide-react';
 import Orders from './pages/Orders';
 import Account from './pages/Account';
+import Help from './pages/Help';
 
 export default function App() {
   const { items } = useCart();
@@ -26,6 +27,9 @@ export default function App() {
          <Link to="/account" aria-label="My account" className="p-2">
            <User size={26} />
          </Link>
+        <Link to="/help" aria-label="Help center" className="p-2">
+          <CircleHelp size={26} />
+         </Link>
         <Link to="/cart" className="relative p-2" aria-label={`Cart, ${count} items`}>
          <ShoppingBasket size={28} />
           {count > 0 && (
@@ -43,6 +47,7 @@ export default function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/help" element={<Help />} />
       </Routes>
     </div>
   );
