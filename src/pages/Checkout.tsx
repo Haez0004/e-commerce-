@@ -3,10 +3,13 @@ import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { saveOrder } from '../utils/orders';
 import type { Order } from '../types';
+import { getProfile } from '../utils/profile';
 
 export default function Checkout() {
   const { items, dispatch } = useCart();
-const [form, setForm] = useState({ name: '', phone: '', address: '' });
+const [form, setForm] = useState(
+  () => getProfile() ?? { name: '', phone: '', address: '' }
+);
 
 function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
   setForm({ ...form, [e.target.name]: e.target.value });

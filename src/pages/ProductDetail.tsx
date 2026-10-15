@@ -20,8 +20,9 @@ const { dispatch } = useCart();
       <h1 className="mt-3 text-xl font-bold">{product.name}</h1>
       <p className="text-gray-500">{product.category}</p>
       <p className="font-bold text-green-600">
-{product.price.toLocaleString('en-NG', { style: 'currency', currency: 'NGN' })}
-     </p>  
+       {product.price.toLocaleString('en-NG', { style: 'currency', currency: 'NGN' })}
+     </p> 
+   <p className="mt-3 text-gray-600">{product.description}</p> 
 {product.colors && (
   <div className="mt-3 flex gap-2">
     {product.colors.map((color) => (
