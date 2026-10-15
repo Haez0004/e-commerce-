@@ -34,3 +34,11 @@ Next:
 - Help center page (/help)
 - PWA offline test on the live site (airplane mode)
 - README: features, tech stack, run locally, screenshots
+
+## Project 5 COMPLETE (Oct 15)
+- Live: https://e-commerce-ten-wine-53.vercel.app
+- Repo: github.com/Haez0004/e-commerce-
+- README done: features, tech stack, run locally, screenshots
+- Pending decision: contact number is public (src/data/contact.ts). Consider a separate shop number or a contact form.
+
+Next: Days 36-42, Project 6 (GitHub Jobs clone or Movie App with API)
