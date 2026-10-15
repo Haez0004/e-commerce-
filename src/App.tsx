@@ -9,6 +9,8 @@ import { ShoppingBasket, User, CircleHelp } from 'lucide-react';
 import Orders from './pages/Orders';
 import Account from './pages/Account';
 import Help from './pages/Help';
+import About from './pages/About';
+import Footer from './components/Footer';
 
 export default function App() {
   const { items } = useCart();
@@ -48,7 +50,9 @@ export default function App() {
         <Route path="/orders" element={<Orders />} />
         <Route path="/account" element={<Account />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/about" element={<About />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
