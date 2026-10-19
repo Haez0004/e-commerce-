@@ -8,9 +8,9 @@ function money(n: number) {
 }
 
 const BADGE = {
-  success: { label: 'Successful', style: 'bg-green-100 text-green-700' },
+  success: { label: 'Successful', style: 'bg-cyan-400/10 text-cyan-400' },
   failed: { label: 'Failed', style: 'bg-red-100 text-red-600' },
-  cancelled: { label: 'Cancelled', style: 'bg-gray-200 text-gray-600' },
+  cancelled: { label: 'Cancelled', style: 'bg-slate-700 text-slate-300' },
 };
 
 export default function Orders() {
@@ -28,8 +28,8 @@ export default function Orders() {
     return (
       <div className="p-4 text-center">
         <h1 className="text-xl font-bold">My orders</h1>
-        <p className="mt-2 text-gray-500">You have no orders yet.</p>
-        <Link to="/" className="mt-4 block rounded bg-green-600 py-2 text-white">
+        <p className="mt-2 text-slate-400">You have no orders yet.</p>
+        <Link to="/" className="mt-4 block rounded bg-cyan-400 py-2 text-slate-900">
           Start shopping
         </Link>
       </div>
@@ -43,7 +43,7 @@ export default function Orders() {
         {orders.map((order) => (
           <div key={order.id} className="rounded-xl border p-3">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-slate-400">
                 {new Date(order.date).toLocaleString('en-NG', {
                   dateStyle: 'medium',
                   timeStyle: 'short',
@@ -55,7 +55,7 @@ export default function Orders() {
                 {BADGE[order.status].label}
               </span>
             </div>
-            <p className="mt-1 text-xs text-gray-400">{order.id}</p>
+            <p className="mt-1 text-xs text-slate-400">{order.id}</p>
             {order.items.map((item, i) => (
               <p key={i} className="mt-1 text-sm">
                 {item.name}

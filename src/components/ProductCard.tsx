@@ -21,19 +21,19 @@ const { dispatch } = useCart();
       <h3 className="mt-2 font-semibold">
         <Link to={`/product/${product.id}`}>{product.name}</Link>
         </h3>
-      <p className="text-sm text-gray-500">{product.category}</p>
+      <p className="text-sm text-slate-400">{product.category}</p>
     <p className="text-sm text-amber-500" aria-label={`Rated ${product.rating} out of 5`}>
   {'\u2605'.repeat(Math.round(product.rating))}
-  <span className="text-gray-300">
+  <span className="text-slate-500">
     {'\u2605'.repeat(5 - Math.round(product.rating))}
    </span>
-      <span className="ml-1 text-gray-500">({product.reviewCount})</span>
+      <span className="ml-1 text-slate-400">({product.reviewCount})</span>
      </p>
-      <p className="font-bold text-green-600">
+      <p className="font-bold text-cyan-400">
   {product.price.toLocaleString('en-NG', { style: 'currency', currency: 'NGN' })}
 </p>
 <button
-  className="mt-2 w-full rounded-lg bg-green-600 py-2 text-white"
+  className="mt-2 w-full rounded-lg bg-cyan-400 py-2 text-slate-900"
   onClick={() => {
   dispatch({ type: 'ADD_ITEM', product });
   toast.success('Added to cart');

@@ -19,7 +19,7 @@ export default function Cart() {
       {items.map((item) => (
         <div key={`${item.product.id}-${item.selectedColor}`} className="mt-3 border-b pb-3">
           <p className="font-semibold">{item.product.name}</p>
-          <p className="text-sm text-gray-500">qty: {item.quantity}</p>
+          <p className="text-sm text-slate-400">qty: {item.quantity}</p>
           {item.selectedColor && <p className="text-sm">Color: {item.selectedColor}</p>}
    <div className="mt-2 flex gap-2">
       <button
@@ -49,7 +49,7 @@ export default function Cart() {
     </p>
 <Link
   to="/checkout"
-  className="mt-4 block w-full rounded bg-green-600 py-2 text-center text-white"
+  className="mt-4 block w-full rounded bg-cyan-400 py-2 text-center text-slate-900"
 >
   Proceed to Checkout
 </Link>

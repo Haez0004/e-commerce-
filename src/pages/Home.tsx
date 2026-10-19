@@ -14,8 +14,8 @@ export default function Home() {
 
   return (
     <div className="p-4">
-<section className="mb-4 rounded-xl bg-green-600 p-6 text-white">
-  <h1 className="text-2xl font-bold">
+<section className="mb-4 rounded-xl border border-cyan-400/40 bg-slate-800 p-6 text-slate-300">
+  <h1 className="text-2xl font-bold text-cyan-400">
    Welcome to HAEZ SHOP
   </h1>
   <p className="mt-2 text-sm">
@@ -25,7 +25,7 @@ export default function Home() {
   onClick={() =>
     document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })
   }
-  className="mt-4 rounded-lg bg-white px-5 py-2 font-semibold text-green-700"
+  className="mt-4 rounded-lg bg-cyan-400 px-5 py-2 font-semibold text-slate-900"
 >
   Shop now
 </button>
@@ -44,7 +44,7 @@ export default function Home() {
       key={c}
       onClick={() => setCategory(c)}
       className={`whitespace-nowrap rounded-full border px-4 py-1 text-sm ${
-        category === c ? 'bg-green-600 text-white' : 'bg-white'
+        category === c ? 'bg-cyan-400 text-slate-900' : 'bg-slate-800'
       }`}
     >
       {c}
@@ -52,7 +52,7 @@ export default function Home() {
   ))}
 </div>
       {filtered.length === 0 ? (
-        <p className="text-center text-gray-500">No products found.</p>
+        <p className="text-center text-slate-400">No products found.</p>
       ) : (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
           {filtered.map((product) => (

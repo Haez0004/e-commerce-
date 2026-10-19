@@ -83,14 +83,14 @@ async function handleSubmit() {
 if (placed) {
   return (
     <div className="p-4 text-center">
-      <h1 className="text-xl font-bold text-green-600">Order placed! 🎉</h1>
+      <h1 className="text-xl font-bold text-cyan-400">Order placed! 🎉</h1>
       <p className="mt-2">
         Thank you, {form.name}. We will call you on {form.phone} to confirm
         delivery.
       </p>
       <Link
         to="/"
-        className="mt-4 block w-full rounded bg-green-600 py-2 text-white"
+        className="mt-4 block w-full rounded bg-cyan-400 py-2 text-slate-900"
       >
         Continue Shopping
       </Link>
@@ -147,7 +147,7 @@ if (placed) {
   </p>
 )}
 <button
-  className="rounded bg-green-600 py-2 text-white disabled:opacity-50"
+  className="rounded bg-cyan-400 py-2 text-slate-900 disabled:opacity-50"
   onClick={handleSubmit}
   disabled={loading}
 >

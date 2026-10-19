@@ -18,11 +18,11 @@ const { dispatch } = useCart();
     <div className="p-4">
       <img className="w-full rounded-lg" src={product.image} alt={product.name} />
       <h1 className="mt-3 text-xl font-bold">{product.name}</h1>
-      <p className="text-gray-500">{product.category}</p>
-      <p className="font-bold text-green-600">
+      <p className="text-slate-400">{product.category}</p>
+      <p className="font-bold text-cyan-400">
        {product.price.toLocaleString('en-NG', { style: 'currency', currency: 'NGN' })}
      </p> 
-   <p className="mt-3 text-gray-600">{product.description}</p> 
+   <p className="mt-3 text-slate-300">{product.description}</p> 
 {product.colors && (
   <div className="mt-3 flex gap-2">
     {product.colors.map((color) => (
@@ -38,7 +38,7 @@ const { dispatch } = useCart();
 )}
 <p className="mt-2 text-sm">Selected: {selectedColor}</p>
 <button
-  className="mt-4 w-full rounded bg-green-600 py-2 text-white"
+  className="mt-4 w-full rounded bg-cyan-400 py-2 text-slate-900"
   onClick={() =>
     dispatch({
       type: 'ADD_ITEM',

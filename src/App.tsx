@@ -20,10 +20,10 @@ export default function App() {
     <div>
       <Toaster position="top-center" />
       <header className="flex items-center justify-between p-4 font-bold">
-        <Link to="/" className="rounded border-2 border-green-600 px-3 py-1 text-green-600">
+        <Link to="/" className="rounded border-2 border-cyan-400 px-3 py-1 text-cyan-400">
           Home
          </Link>
-         <Link to="/orders" className="rounded border-2 border-green-600 px-3 py-1 text-sm font-bold text-green-600">
+         <Link to="/orders" className="rounded border-2 border-cyan-400 px-3 py-1 text-sm font-bold text-cyan-400">
             Orders
          </Link>
          <Link to="/account" aria-label="My account" className="p-2">
@@ -35,7 +35,7 @@ export default function App() {
         <Link to="/cart" className="relative p-2" aria-label={`Cart, ${count} items`}>
          <ShoppingBasket size={28} />
           {count > 0 && (
-           <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-green-600 px-1 text-xs text-white">
+           <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-cyan-400 px-1 text-xs text-slate-900">
       {count}
     </span>
   )}

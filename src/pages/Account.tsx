@@ -43,7 +43,7 @@ export default function Account() {
   return (
     <div className="p-4">
       <h1 className="text-xl font-bold">My account</h1>
-      <p className="mt-1 text-gray-600">
+      <p className="mt-1 text-slate-300">
         {saved ? `Hi, ${saved.name}` : 'Save your details to check out faster.'}
       </p>
 
@@ -73,7 +73,7 @@ export default function Account() {
         />
         {errors.address && <p className="text-sm text-red-500">{errors.address}</p>}
 
-        <button className="rounded bg-green-600 py-2 text-white" onClick={handleSave}>
+        <button className="rounded bg-cyan-400 py-2 text-slate-900" onClick={handleSave}>
           Save details
         </button>
         {saved && (
