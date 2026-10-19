@@ -1,4 +1,4 @@
-const CACHE = 'shop-v1';
+const CACHE = 'shop-v2';
 
 const SHELL = [
   '/',
